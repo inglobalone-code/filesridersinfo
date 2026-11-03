@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101b1b" />
+  <title>RideVault — Your trips, together</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">RV</span><span>ride<span class="brand-light">vault</span></span></a>
+    <div class="top-actions"><span id="userLabel" class="user-label"></span><button id="logoutBtn" class="button button-quiet hidden">Log out</button></div>
+  </header>
+
+  <main>
+    <section id="loginView" class="login-layout">
+      <div class="intro">
+        <div class="eyebrow"><span class="live-dot"></span> THE RIDERS' PRIVATE ALBUM</div>
+        <h1>Every ride has<br/><em>a story.</em></h1>
+        <p>One home for the photos, videos, and little moments you collect on the road. Sign in, relive the trip, and keep the memories moving.</p>
+        <div class="intro-stats"><div><strong>01</strong><span>Sign in</span></div><div><strong>02</strong><span>Choose a trip</span></div><div><strong>03</strong><span>Relive it</span></div></div>
+      </div>
+      <div class="login-card">
+        <div class="card-kicker">WELCOME BACK</div><h2>Rider login</h2><p class="muted">Use the ID and password shared by your trip admin.</p>
+        <form id="loginForm">
+          <label for="loginId">Rider ID</label><input id="loginId" autocomplete="username" placeholder="e.g. RIDER001" required />
+          <label for="loginPassword">Password</label><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Your password" required />
+          <button class="button button-primary full" type="submit">Enter RideVault <span>↗</span></button>
+          <p id="loginMessage" class="form-message" aria-live="polite"></p>
+        </form>
+        <div class="secure-note">⌑ &nbsp; Shared only with your riding crew</div>
+      </div>
+    </section>
+
+    <section id="appView" class="hidden">
+      <div class="welcome-row"><div><div class="eyebrow">YOUR CREW'S MEMORY LANE</div><h1 class="page-title">The <em>journey</em> continues.</h1><p class="muted">Pick a trip and step back into the moments.</p></div><div class="welcome-chip">✦ &nbsp; Good times live here</div></div>
+      <div id="adminPanel" class="admin-panel hidden">
+        <div class="admin-heading"><div><div class="eyebrow">CREW CONTROL</div><h2>Admin studio</h2></div><span class="admin-tag">ADMIN</span></div>
+        <div class="admin-grid">
+          <form id="tripForm" class="admin-form"><h3>Create a trip album</h3><input name="tripName" placeholder="Trip name" required/><input name="tripDate" type="date"/><input name="tripPlace" placeholder="Destination / route"/><textarea name="tripDescription" placeholder="A short note about this ride"></textarea><button class="button button-dark" type="submit">Create trip</button><p class="form-message" id="tripMessage"></p></form>
+          <form id="riderForm" class="admin-form"><h3>Add a rider</h3><input name="riderId" placeholder="Rider ID (e.g. RIDER002)" required/><input name="riderName" placeholder="Rider name" required/><input name="riderPassword" type="password" placeholder="Temporary password" required/><select name="role"><option value="rider">Rider</option><option value="admin">Admin</option></select><button class="button button-dark" type="submit">Create login</button><p class="form-message" id="riderMessage"></p></form>
+        </div>
+      </div>
+      <div class="section-heading"><div><div class="eyebrow">THE ALBUMS</div><h2>Trips & memories</h2></div><span id="tripCount" class="count-pill">0 trips</span></div>
+      <div id="tripGrid" class="trip-grid"></div>
+      <section id="tripDetail" class="trip-detail hidden">
+        <div class="detail-top"><button id="backTrips" class="back-button">← All trips</button><div class="detail-actions"><span id="detailCount" class="muted"></span></div></div>
+        <div class="trip-hero"><div class="eyebrow">TRIP ALBUM</div><h2 id="detailTitle"></h2><p id="detailMeta"></p><p id="detailDescription" class="detail-description"></p></div>
+        <div class="upload-panel"><div><h3>Add to the memories</h3><p class="muted">Share photos or videos from this trip. Keep uploads under 8 MB each.</p></div><form id="uploadForm"><input id="mediaFile" type="file" accept="image/*,video/*" required/><button class="button button-primary" type="submit">Upload memory ↑</button><p id="uploadMessage" class="form-message"></p></form></div>
+        <div id="mediaGrid" class="media-grid"></div>
+      </section>
+      <footer class="footer">Made for the miles, the madness & the memories. <span>RIDE TOGETHER. REMEMBER FOREVER.</span></footer>
+    </section>
+  </main>
+  <div id="lightbox" class="lightbox hidden"><button id="closeLightbox" aria-label="Close">×</button><div id="lightboxContent"></div></div>
+  <script src="app.js"></script>
+</body>
+</html>
