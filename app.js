@@ -2,7 +2,7 @@
  * RideVault frontend
  * Set API_URL to your deployed Apps Script Web App URL ending in /exec.
  */
-const API_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const API_URL = "https://script.google.com/macros/s/AKfycbwOtreRYnaLgtqLfOrSEmDOCOLr59y85B8eeTt-7hMEAcDtqdyZu0SRVCAxUEFvSF4-/exec";
 const MAX_FILE_MB = 8;
 let session = null;
 let currentTrip = null;
